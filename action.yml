@@ -1,0 +1,25 @@
+name: 'Compile LaTeX'
+description: 'Calls latexmk to compile a LaTeX document'
+author: antaljanosbenjamin
+branding:
+  icon: file-text
+  color: orange
+inputs:
+  file:
+    description: 'The LaTeX file to be compiled, relative to the root of the repository.'
+    required: true
+  output-directory:
+    description: 'The directory for output files, relative to the root of the repository.'
+    required: false
+    default: .
+  args:
+    description: 'Additional arguments to pass over to latexmk.'
+    required: false
+runs:
+  using: docker
+  image: docker://antaljanosbenjamin/latex-extra:latest
+  entrypoint: latexmk
+  args:
+    - '-output-directory="/github/workspace/${{ inputs.working-directory }}"'
+    - ${{ inputs.args }}
+    - /github/workspace/${{ inputs.file }}

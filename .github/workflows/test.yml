@@ -1,0 +1,47 @@
+name: test
+on: [push]
+jobs:
+  test-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+        with:
+          file: test.tex
+          args: -pdf
+      - run: '(test -f test.pdf && echo PDF exists) || (echo PDF does not exist && exit 1)'
+  test-file-in-subdirectory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+        with:
+          file: tests/subdir_test.tex
+      - run: '(test -f subdir_test.dvi && echo DVI exists) || (echo DVI does not exist && exit 1)'
+  test-output-directory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+        with:
+          file: test.tex
+          output-directory: tests/output
+      - run: '(test -f tests/output/test.dvi && echo DVI exists) || (echo DVI does not exist && exit 1)'
+  test-args:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+        with:
+          file: test.tex
+          args: -help
+  test-full:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+        with:
+          file: tests/subdir_test.tex
+          output-directory: tests/outputpdf
+          args: -pdf
+      - run: '(test -f tests/outputpdf/subdir_test.pdf && echo PDF exists) || (echo PDF does not exist && exit 1)'
