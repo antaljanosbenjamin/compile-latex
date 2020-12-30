@@ -20,6 +20,7 @@ runs:
   image: docker://antaljanosbenjamin/latex-extra:latest
   entrypoint: latexmk
   args:
+    - -cd # change to directory of source file when processing it
     - -output-directory=/github/workspace/${{ inputs.working-directory }}
-    - ${{ inputs.args }}
     - /github/workspace/${{ inputs.file }}
+    - ${{ inputs.args }}
