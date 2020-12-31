@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@v1.0.0"
         with:
           file: test.tex
           args: -pdf
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@v1.0.0"
         with:
           file: tests/subdir_test.tex
       - run: '(test -f subdir_test.dvi && echo DVI exists) || (echo DVI does not exist && exit 1)'
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@v1.0.0"
         with:
           file: test.tex
           output-directory: tests/output
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@v1.0.0"
         with:
           file: test.tex
           args: -help
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@master"
+      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@v1.0.0"
         with:
           file: tests/subdir_test.tex
           output-directory: tests/outputpdf

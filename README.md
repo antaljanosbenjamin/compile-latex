@@ -1,7 +1,7 @@
-# Compile latex action
-This action can be used to compile latex documents with `latexmk`. The action uses an ubuntu based [docker image](https://github.com/antaljanosbenjamin/latex-extra-docker).
+# Compile LaTeX action
+This action can be used to compile LaTeX documents with `latexmk`. The action uses an ubuntu based [docker image](https://github.com/antaljanosbenjamin/latex-extra-docker).
 
-It calls `latexmk` in the working directory on a single tex file.
+It calls `latexmk` in the working directory to compile a LaTeX document.
 ## Inputs
 
 ### `file` (required)
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: antaljanosbenjamin/compile-latex@master
+      - uses: antaljanosbenjamin/compile-latex@v1.0.0
         with:
           file: test.tex
           args: -pdf
