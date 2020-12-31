@@ -1,4 +1,4 @@
-name: 'Compile LaTeX'
+name: 'Compile LaTeX via latexmk'
 description: 'Calls latexmk to compile a LaTeX document'
 author: antaljanosbenjamin
 branding:
