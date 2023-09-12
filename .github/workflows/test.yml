@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./ # For real world usage this should be replaced by "antaljanosbenjamin/compile-latex@v1.0.0"
+      - uses: ./ # For real world usage this should be    replaced by "antaljanosbenjamin/compile-latex@v1.0.0"
         with:
           file: test.tex
           output-directory: tests/output
